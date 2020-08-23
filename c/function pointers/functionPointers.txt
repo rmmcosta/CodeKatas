@@ -1,0 +1,20 @@
+in function pointers the name, or should we say identifier, goes in the middle.
+to read a declaration for a function pointer we must follow the right left rule.
+
+
+int *(*foo)(int,int,int);
+
+we start in the middle with the identifier
+identifier: foo
+we look right
+right: nothing
+we look left
+left: pointer
+we look right:
+right: funtion that takes 3 ints
+we look left:
+left: return int* (a pointer to an int)
+
+foo is a pointer to a function that takes 3 ints and returns an int pointer
+
+https://www.youtube.com/watch?v=axngwDJ79GY

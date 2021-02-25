@@ -58,14 +58,15 @@ int isPresent(int nums[], int value, int size)
 
 int split(int *nums, int low, int high)
 {
-    int newNums[high - low];
+    if(low==0)
+        return high-low;
     int *oldPos = nums;
     int *newPos = nums+low;
     for (int i = low; i < high; i++)
     {
         *(oldPos++) = *(newPos++);
     }
-    return ARRAYSIZE(newNums);
+    return high-low;
 }
 
 int min(int v1, int v2)

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 const int DEFAULTSIZE = 8;
-int DEFAULTNUMS[] = {8, 3, 4, 2, 5, 1, 6, 7};
+int DEFAULTNUMS[] = {8, 4, 3, 5, 2, 1, 7, 6};
 
 void selectionSort(int *nums, int size);
 
@@ -21,10 +21,11 @@ int main(int argc, char *argv[])
 
 void selectionSort(int *nums, int size)
 {
+    int swaps = 0;
     for (int i = 0; i < size; i++)
     {
         int smallest = i; //smallest number position
-        for (int j = i+1; j < size; j++)
+        for (int j = i + 1; j < size; j++)
         {
             if (nums[j] < nums[smallest])
                 smallest = j;
@@ -35,6 +36,7 @@ void selectionSort(int *nums, int size)
             int temp = nums[i];
             nums[i] = nums[smallest];
             nums[smallest] = temp;
+            swaps += 1;
         }
     }
     //print the result
@@ -43,4 +45,5 @@ void selectionSort(int *nums, int size)
         printf("%d ", nums[i]);
     }
     printf("\n");
+    printf("Swaps: %d\n", swaps);
 }

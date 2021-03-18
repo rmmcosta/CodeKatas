@@ -20,38 +20,44 @@ int main()
     printf("Is %s capicua: %s\n", s1, strcapicua(s1, false) ? "yes" : "no");
     s1 = "assar";
     printf("Is %s capicua: %s\n", s1, strcapicua(s1, false) ? "yes" : "no");
+    s1 = "AbcDdCBa";
+    printf("Is %s capicua: %s\n", s1, strcapicua(s1, false) ? "yes" : "no");
+    s1 = "AbcDdCBa";
+    printf("Is %s capicua (ignore case): %s\n", s1, strcapicua(s1, true) ? "yes" : "no");
     return 0;
 }
 
 bool strcapicua(char *s1, bool ignoreCase)
 {
     int size = strlen(s1);
-    for (int i = 0; i <= size - i - 1; i++)
+    char leftChar;
+    char rightChar;
+    for (int i = 0; i < size - i - 1; i++)
     {
+        leftChar = s1[i];
+        rightChar = s1[size - i - 1];
         if (ignoreCase)
         {
-            if ((int)s1[i] >= (int)'a' && (int)s1[i] <= (int)'z')
+
+            int leftAscii = (int)leftChar;
+            int rightAscii = (int)rightChar;
+            if (leftAscii >= (int)'a' && leftAscii <= (int)'z')
             {
-                if ((int)s1[i] - 32 == (int)s1[size - i - 1])
+                if (leftAscii - 32 == rightAscii)
                     continue;
                 else
                     return false;
             }
-            if ((int)s1[i] >= (int)'A' && (int)s1[i] <= (int)'Z')
+            if (leftAscii >= (int)'A' && leftAscii <= (int)'Z')
             {
-                if ((int)s1[i] + 32 == (int)s1[size - i - 1])
+                if (leftAscii + 32 == rightAscii)
                     continue;
                 else
                     return false;
             }
-            if (s1[i] != s1[size - i - 1])
-                return false;
         }
-        else
-        {
-            if (s1[i] != s1[size - i - 1])
-                return false;
-        }
+        if (leftChar != rightChar)
+            return false;
     }
     return true;
 }

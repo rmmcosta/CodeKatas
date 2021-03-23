@@ -1,0 +1,14 @@
+coiso.txt
+copyFiles
+copyFiles.c
+destin
+ls.txt
+origin
+readCoiso
+readCoiso.c
+readGrades
+readGrades.c
+readGradesWithScanf
+readGradesWithScanf.c
+writeCoiso
+writeCoiso.c

@@ -1,0 +1,8 @@
+André       12
+Rui         13
+Ricardo     20
+João        17
+Ana         19
+Xpto        9
+Tiago       8
+Carlos      7

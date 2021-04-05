@@ -7,5 +7,6 @@ typedef struct node
 } node;
 
 void insertNode(node **list, int value);
+void insertAtPos(node **list, int value, int pos);
 void freeList(node **list);
 void printList(node **list);

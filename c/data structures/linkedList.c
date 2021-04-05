@@ -36,6 +36,40 @@ void insertNode(node **list, int value)
     }
 }
 
+void insertAtPos(node **list, int value, int pos)
+{
+    if (pos < 0)
+    {
+        printf("Position must be a positive number\n");
+        return;
+    }
+    int i = 0;
+    node *current = *list;
+    node *prev = *list;
+    while (i < pos && current->next != NULL)
+    {
+        i++;
+        prev = current;
+        current = current->next;
+    }
+    if (current->next == NULL && i < pos)
+    {
+        printf("Invalid Position! Max position is %d\n", i);
+    }
+    else
+    {
+        printf("insert in pos %d\n", pos);
+        node *oldCurrent = current;
+        current = malloc(sizeof(node));
+        current->value = value;
+        current->next = oldCurrent;
+        if (pos > 0)
+            prev->next = current;
+        else
+            *list = current;
+    }
+}
+
 void printList(node **list)
 {
     printf("The List\n");

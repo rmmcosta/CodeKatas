@@ -1,0 +1,40 @@
+1: #include <stdio.h>
+2: #include <stdlib.h>
+3: 
+4: #define LINE_MAX_CHARS 100
+5: 
+6: int main(int argc, char **argv)
+7: {
+8:     if (argc < 2 || argc > 3)
+9:     {
+10:         fprintf(stderr, "Wrong sintax!\n");
+11:         exit(1);
+12:     }
+13:     FILE *fpin = fopen(argv[1], "r");
+14:     if (fpin == NULL)
+15:     {
+16:         fprintf(stderr, "Error openning file %s for read!\n", argv[1]);
+17:         exit(1);
+18:     }
+19:     FILE *fpout = stdout;
+20:     if (argc == 3)
+21:     {
+22:         fpout = fopen(argv[2], "w");
+23:         if (fpout == NULL)
+24:         {
+25:             fprintf(stderr, "Error openning file %s for writting!\n", argv[2]);
+26:             exit(1);
+27:         }
+28:     }
+29:     int lineNumber = 0;
+30:     char *line = malloc(sizeof(char) * LINE_MAX_CHARS);
+31:     while (fgets(line, LINE_MAX_CHARS, fpin) != NULL)
+32:     {
+33:         lineNumber++;
+34:         fprintf(fpout, "%d: %s", lineNumber, line);
+35:     }
+36:     fprintf(fpout, "\n");
+37:     fclose(fpin);
+38:     fclose(fpout);
+39:     return 0;
+40: }

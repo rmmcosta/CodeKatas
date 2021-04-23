@@ -33,6 +33,7 @@ int main(int argc, char **argv)
         lineNumber++;
         fprintf(fpout, "%d: %s", lineNumber, line);
     }
+    free(line);
     fprintf(fpout, "\n");
     fclose(fpin);
     fclose(fpout);

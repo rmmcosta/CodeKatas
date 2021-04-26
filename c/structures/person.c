@@ -26,6 +26,10 @@ int main(void)
     presentPerson(&p2);
     newPerson(&p2);
     presentPerson(&p2);
+    Person *p3 = malloc(sizeof(Person));
+    newPerson(p3);
+    presentPerson(p3);
+    free(p3);
     return 0;
 }
 
@@ -46,4 +50,6 @@ void newPerson(Person *person)
     scanf("%*c");
     printf("Please input the phone number:");
     scanf("%[^\n]", person->phoneNumber);
+    scanf("%*[^\n]");
+    scanf("%*c");
 }
